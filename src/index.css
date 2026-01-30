@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Libre+Baskerville:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Noir Detective Theme */
+    --background: 220 20% 10%;
+    --foreground: 45 30% 90%;
+
+    --card: 45 40% 92%;
+    --card-foreground: 30 30% 15%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 45 30% 90%;
+
+    --primary: 35 70% 50%;
+    --primary-foreground: 30 30% 10%;
+
+    --secondary: 30 25% 25%;
+    --secondary-foreground: 45 30% 90%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 45 20% 60%;
+
+    --accent: 0 50% 40%;
+    --accent-foreground: 45 30% 95%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 35 30% 30%;
+    --input: 45 40% 85%;
+    --ring: 35 70% 50%;
+
+    --radius: 0.25rem;
+
+    /* Custom Detective Theme Colors */
+    --paper: 45 45% 88%;
+    --paper-lines: 210 30% 70%;
+    --paper-shadow: 30 20% 20%;
+    --tape: 50 50% 75%;
+    --tape-shadow: 40 30% 40%;
+    --leather: 20 40% 25%;
+    --ink: 220 30% 15%;
+
+    --sidebar-background: 220 20% 8%;
+    --sidebar-foreground: 45 30% 90%;
+    --sidebar-primary: 35 70% 50%;
+    --sidebar-primary-foreground: 30 30% 10%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 45 30% 90%;
+    --sidebar-border: 35 30% 25%;
+    --sidebar-ring: 35 70% 50%;
+  }
+
+  .dark {
+    --background: 220 25% 6%;
+    --foreground: 45 30% 90%;
+
+    --card: 45 35% 85%;
+    --card-foreground: 30 30% 15%;
+
+    --popover: 220 20% 8%;
+    --popover-foreground: 45 30% 90%;
+
+    --primary: 35 70% 50%;
+    --primary-foreground: 30 30% 10%;
+
+    --secondary: 30 25% 20%;
+    --secondary-foreground: 45 30% 90%;
+
+    --muted: 220 15% 15%;
+    --muted-foreground: 45 20% 55%;
+
+    --accent: 0 50% 35%;
+    --accent-foreground: 45 30% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 35 30% 25%;
+    --input: 45 35% 80%;
+    --ring: 35 70% 50%;
+
+    --sidebar-background: 220 25% 5%;
+    --sidebar-foreground: 45 30% 90%;
+    --sidebar-primary: 35 70% 50%;
+    --sidebar-primary-foreground: 30 30% 10%;
+    --sidebar-accent: 220 15% 12%;
+    --sidebar-accent-foreground: 45 30% 90%;
+    --sidebar-border: 35 30% 20%;
+    --sidebar-ring: 35 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Libre Baskerville', serif;
+  }
+}
+
+@layer components {
+  .font-typewriter {
+    font-family: 'Special Elite', cursive;
+  }
+
+  .paper-texture {
+    background: 
+      repeating-linear-gradient(
+        transparent,
+        transparent 27px,
+        hsl(var(--paper-lines) / 0.3) 28px
+      ),
+      linear-gradient(
+        135deg,
+        hsl(var(--paper)) 0%,
+        hsl(45 50% 92%) 50%,
+        hsl(var(--paper)) 100%
+      );
+  }
+
+  .tape-effect {
+    background: linear-gradient(
+      180deg,
+      hsl(var(--tape) / 0.9) 0%,
+      hsl(var(--tape) / 0.7) 100%
+    );
+    box-shadow: 
+      2px 2px 4px hsl(var(--tape-shadow) / 0.4),
+      inset 0 1px 0 hsl(0 0% 100% / 0.3);
+  }
+
+  .notepad-shadow {
+    box-shadow:
+      4px 4px 0 hsl(var(--paper-shadow) / 0.3),
+      8px 8px 20px hsl(var(--paper-shadow) / 0.5),
+      inset 0 0 30px hsl(var(--paper-shadow) / 0.05);
+  }
+
+  .spiral-binding {
+    background: repeating-linear-gradient(
+      180deg,
+      transparent,
+      transparent 18px,
+      hsl(220 10% 30%) 18px,
+      hsl(220 10% 30%) 22px,
+      transparent 22px,
+      transparent 28px
+    );
+  }
+}
+
+@layer utilities {
+  .text-ink {
+    color: hsl(var(--ink));
+  }
+
+  .bg-paper {
+    background-color: hsl(var(--paper));
+  }
+
+  .bg-leather {
+    background-color: hsl(var(--leather));
+  }
+
+  .animate-flicker {
+    animation: flicker 4s infinite;
+  }
+
+  @keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.95; }
+    52% { opacity: 1; }
+    54% { opacity: 0.9; }
+    56% { opacity: 1; }
+  }
+}
